@@ -1,0 +1,388 @@
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clearfix {
+}
+
+.ajax_indicator {
+  -webkit-border-radius: 10px;
+  background-color: rgba(0, 0, 0, .5);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 40px;
+  height: 80px;
+  width: 200px;
+  position: absolute;
+  top: 120px;
+  left: 60px;
+  text-align: center;
+  z-index: 5000;
+}
+
+.ajax_indicator p {
+  padding: 10px 0 0 0;
+}
+
+.ajax_indicator p:after {
+  content: url(embed/ajax-loader.gif);
+  position: relative;
+  top: 30px;
+  left: -50px;
+}
+
+body {
+    background: white;
+}
+
+#jqt > * {
+  /* http://www.colorzilla.com/gradient-editor/ */
+  background: -webkit-gradient(linear, left top, left bottom,
+    color-stop(0%,rgba(0,133,191,0)),
+    color-stop(50%,rgba(0,133,191,0.2)),
+    color-stop(100%,rgba(0,133,191,1)));
+}
+
+#jqt > div {
+  min-height: 1000px;
+}
+
+#jqt .toolbar > h1 {
+  text-indent: -1000px;
+  background: url(embed/Qrious-toolbar.png) no-repeat center top;
+  top: 5px;
+}
+
+/* Screen wide buttons */
+#settings a.signout,
+#twitter a.more,
+#activate a.activate,
+#followup a.save,
+#place a.checkin{
+  margin: 0 10px 10px 10px;
+}
+
+#jqt .orangeButton {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: inherit;
+  color: white;
+
+  -webkit-border-image: url(embed/orangeButton.png) 0 14 0 14;
+  border-width: 0 14px;
+}
+#jqt .orangeButton.active, #jqt .orangeButton:active {
+  -webkit-border-image: url(embed/orangeButton-active.png) 0 14 0 14;
+}
+
+/* Signin screen */
+#jqt #signin #logo {
+  background: url(embed/Qrious-splash.png) no-repeat center bottom;
+  width: 250px;
+  height: 100px;
+  margin: 0 auto;
+  padding: 20px 0 0 0;
+}
+
+#jqt #signin .tagline {
+  margin: 1em auto;
+  text-align: center;
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: bold;
+  color: black;
+}
+
+/* Home screen */
+
+#jqt #home .event_info {
+}
+
+#jqt #home .event_info .event_name{
+  text-align: center;
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#jqt #home .event_info img {
+  display: block;
+  margin: 0 auto;
+}
+
+#jqt #home .homebox{
+  float: left;
+  padding: 20px 0;
+  width: 50%;
+  height: 125px;
+}
+#jqt #home .homebox a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: no-repeat center top;
+}
+#jqt #home .homebox .label {
+  padding: 85px 0 0 0;
+  text-align: center;
+}
+
+#jqt #home .homebox .scan {
+  background-image: url(embed/home_connections.png);
+}
+
+#jqt #home .homebox .connections {
+  background-image: url(embed/home_connections.png);
+}
+
+#jqt #home .homebox .places {
+  background-image: url(embed/home_places.png);
+}
+
+#jqt #home .homebox .badge {
+  background-image: url(embed/home_badge.png);
+}
+
+#jqt #home .homebox .settings {
+  background-image: url(embed/home_settings.png);
+}
+
+
+#connection .icebreaker,
+#badge .icebreaker {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #555;
+  border-radius: 8px 8px;
+  background-color: white;
+}
+
+.gravatar:before {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.gravatar {
+  float: right;
+}
+
+#connection .full_name,
+#connection .company,
+#connection .title,
+#badge .full_name,
+#badge .company,
+#badge .title {
+  margin: 0 0 5px 0; /*color: #4C566C;*/
+/*color: black;*/
+  font: normal normal bold 18px/normal 'Helvetica Neue', Helvetica;
+  text-shadow: rgba(255, 255, 255, 0.199219) 0 1px 1px;
+}
+
+.infobox {
+  background: white;
+  border: 1px solid #B4B4B4;
+  border-radius: 8px 8px;
+  color: black;
+  margin: 10px;
+  padding: 10px;
+}
+
+.signin_message {
+  margin: 20px 10px 10px 10px;
+  color: #4C566C;
+  font: normal normal bold 18px/normal 'Helvetica Neue', Helvetica;
+  text-shadow: rgba(255, 255, 255, 0.199219) 0 1px 1px;
+}
+
+/*Aligh text and images vertically*/
+li a img,
+li a span,
+li img,
+li span,
+h2 img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#jqt p {
+  margin: 10px 20px 6px;
+}
+
+#jqt ul li.email,
+#jqt ul li.phone,
+#jqt ul li.twitter,
+#jqt ul li.facebook,
+#jqt ul li.linked_in,
+#jqt ul li.website {
+  margin-left: 10px;
+  padding-left: 37px;
+  background: no-repeat left center;
+}
+
+#jqt ul li.email {
+  background-image: url(embed/email-24-dark.png);
+}
+
+#jqt ul li.phone {
+  background-image: url(embed/phone-24-dark.png);
+}
+
+#jqt ul li.twitter {
+  background-image: url(embed/twitter_24.png);
+}
+
+#jqt ul li.facebook {
+  background-image: url(embed/facebook_24.png);
+}
+
+#jqt ul li.linked_in {
+  background-image: url(embed/linked_in_24.png);
+}
+
+#jqt ul li.website {
+  background-image: url(embed/website-24-dark.png);
+}
+
+#jqt #connections .picture {
+  float: left;
+}
+
+#jqt #connections .picture img {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+}
+
+#jqt #connections .company {
+  font-size: smaller;
+  font-style: italic;
+  font-weight: normal;
+}
+
+#jqt #connections .title {
+  font-size: smaller;
+  font-style: italic;
+  font-weight: normal;
+}
+
+#jqt #connections .last_checkin {
+  font-size: smaller;
+  color: blue;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#jqt #place #place_checkin_comment {
+}
+#jqt #place .place_name {
+  font: normal normal bold 18px/normal 'Helvetica Neue', Helvetica;
+  text-shadow: rgba(255, 255, 255, 0.2) 0 1px 1px;
+}
+
+#jqt #place p {
+}
+
+#jqt #place .picture {
+  float: left;
+}
+
+#jqt #place .picture img {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+}
+
+#jqt #place .icebreaker {
+  padding: 0 10px 0 0;
+  font-size: smaller;
+  font-style: italic;
+  font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#jqt #place .time_ago {
+  font-size: smaller;
+  color: blue;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#jqt ul li .subtitle {
+  margin: 5px 0 0 0;
+  padding: 0 10px 0 0;
+  font-size: smaller;
+  font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#jqt ul li.pagenav,
+#jqt ul li.external,
+#jqt ul li.delete {
+  padding-right: 0;
+}
+
+#jqt ul li.pagenav a,
+#jqt ul li.external a,
+#jqt ul li.delete a {
+  margin-right: 0;
+  background: no-repeat right center;
+}
+
+#jqt ul li.pagenav a {
+  background-image: url(embed/pagenav-li-bg.png);
+}
+
+#jqt ul li.external a {
+  background-image: url(embed/external-li-bg.png);
+}
+
+#jqt ul li.delete a {
+  background-image: url(embed/delete-li-bg.png);
+}
+
+#jqt .unknown:before {
+  content: url(embed/attention-48.png);
+  float: left;
+  margin: 0 10px;
+}
+
+#jqt .help {
+  margin: 1em 0 0 0;
+}
+
+#jqt .help:before {
+  content: url(embed/help-48.png);
+  float: left;
+  margin: 0 10px;
+}
+
+#twitter .tweettext {
+  font-weight: normal;
+  color: black;
+  margin: 0;
+}
+
+#twitter .tweettime {
+  font-weight: normal;
+  font-style: italic;
+  margin: 0;
+}
+
