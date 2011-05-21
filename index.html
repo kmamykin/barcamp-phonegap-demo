@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=default-width; user-scalable=no"/>
+  <meta name="format-detection" content="telephone=no">
+  <title>Qrious</title>
+  <link href=".css" media="screen" rel="stylesheet" type="text/css">
+  <script src="http://hoptoadapp.com/javascripts/notifier.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="jqt">
+
+  <div id="loading_page">
+    <h2>Loading...</h2>
+  </div>
+
+  <div id="twitter" class="current" data-bind="pageAnimationEnd: twitterView.pageAnimationEnded">
+    <div class="toolbar">
+      <h1 data-bind="text: twitterView.username"></h1>
+      <a href="#" class="back">Back</a>
+      <a class="button" data-bind="click: twitterView.refreshTweetsClicked" rel="external">Refresh</a>
+    </div>
+    <div class="s-scrollwrapper">
+      <div>
+        <h2>
+          <span>Latest tweets for</span>
+          <a data-bind="href: twitterView.userPageUrl" rel="external">
+            <span data-bind="text: twitterView.userPageUrl"></span>
+          </a>
+        </h2>
+        <ul class="rounded"
+            data-bind="template: {name:'tweetsTemplate', foreach:twitterView.latestTweets}"></ul>
+        <a class="whiteButton more" data-bind="click: twitterView.showMoreTweetsClicked" rel="external">More</a>
+      </div>
+    </div>
+  </div>
+
+  <script id="tweetsTemplate" type="text/x-jquery-tmpl">
+    <li>
+      <p class='tweettext'>${ text }</p>
+
+      <p class='tweettime'>${ created_at }</p>
+    </li>
+  </script>
+</div>
+</body>
+</html>
