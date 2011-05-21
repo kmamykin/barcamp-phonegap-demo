@@ -5,7 +5,6 @@ var jQT = new $.jQTouch({
   icon: '/apple-touch-icon.png',
   addGlossToIcon: false,
   startupScreen: '/images/mobile/mobile_startup.png',
-  //useAnimations: false,  // This is a temp fix for "tap is not ready" jqtouch error
   //  preloadImages: [
   //    '/javascripts/jqtouch/themes/apple/img/back_button.png',
   //    '/javascripts/jqtouch/themes/apple/img/back_button_clicked.png',
@@ -19,17 +18,17 @@ var jQT = new $.jQTouch({
 
 var ViewModel = function() {
   var self = this;
-  self.username = ko.observable("");
+  self.searchQuery = ko.observable("");
   self.latestTweets = ko.observableArray([]);
   self.numberOfTweets = 0;
 
   self.userPageUrl = ko.dependentObservable(function() {
-    return "http://twitter.com/" + self.username();
+    return "#" + self.searchQuery();
   }, self);
 
   self.twitterPageAnimationEnded = function(direction) {
     if (direction == 'in') {
-      console.log("Page animated in. Loading tweets for " + self.username());
+      console.log("Page animated in. Loading tweets for " + self.searchQuery());
     }
   };
 
@@ -43,20 +42,19 @@ var ViewModel = function() {
   };
 
   self.loadTweets = function() {
-    var url = self.userTimelineUrl();
-    console.log("loadTweets for " + self.username() + url);
+    var url = self.searchUrl();
+    console.log("loadTweets for " + self.searchQuery() + url);
     $.getJSON(url, {dataType:"jsonp"}, function(data) {
       console.log(data);
-      self.latestTweets(data);
-//      jQT.setPageHeight($("#twitter"));
+      self.latestTweets(data["results"]);
     });
   };
 
-  self.userTimelineUrl = function() {
-    return "http://api.twitter.com/1/statuses/user_timeline.json"
-            + "?screen_name=" + self.username()
-            + "&count=" + self.numberOfTweets
-            + "&include_rts=true&callback=?"
+  self.searchUrl = function() {
+    return "http://search.twitter.com/search.json"
+            + "?q=" + self.searchQuery()
+            + "&rpp=" + self.numberOfTweets
+            + "&callback=?"
   };
 };
 
@@ -64,7 +62,7 @@ var app = new ViewModel();
 
 $(function() {
   console.log("Document ready!");
-  app.username("kmamyk");
+  app.searchQuery("barcampnyc");
 
   // Loading indicator
   $(".ajax_indicator").ajaxStart(
@@ -75,7 +73,7 @@ $(function() {
     console.log("ajaxComplete");
     $(this).fadeOut().hide();
   });
-  app.numberOfTweets = 5;
+  app.numberOfTweets = 10;
   ko.applyBindings(app);
   app.loadTweets();
 });
